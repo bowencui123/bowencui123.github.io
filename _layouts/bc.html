@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bowen Cui · {{ page.short_title | default: page.title | default: "About" }}</title>
+  <meta name="description" content="Bowen Cui — Computer Science Ph.D. student at George Mason University working on high-performance computing, code optimization, and large language models.">
+  <meta property="og:title" content="Bowen Cui — CS Ph.D. Student">
+  <meta property="og:description" content="Computer Science Ph.D. student at George Mason University. High-performance computing, code optimization, and LLMs.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="{{ '/images/logo-mark.svg' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Code+Pro:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/bc.css' | relative_url }}">
+  <script>
+    (function () {
+      var t = 'light';
+      try { t = localStorage.getItem('bcui-theme') || 'light'; } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+<canvas id="rain-left" class="side-rain left" aria-hidden="true"></canvas>
+<canvas id="rain-right" class="side-rain right" aria-hidden="true"></canvas>
+
+<div class="page-shell">
+
+<header class="bc-header">
+  <div class="hdr-inner">
+    <a href="{{ '/' | relative_url }}" class="brand">
+      <img src="{{ '/images/logo-mark.svg' | relative_url }}" alt="">
+      <span class="brand-name">Bowen Cui</span>
+      <span class="brand-divider"></span>
+      <span class="brand-role">Ph.D. Student</span>
+    </a>
+    <div class="hdr-right">
+      <nav class="bc-nav">
+        {% for item in site.data.navigation.main %}
+        <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a>
+        {% endfor %}
+      </nav>
+      <button id="theme-toggle" class="theme-btn no-print" aria-label="Toggle color theme">Dark</button>
+      <button id="menu-toggle" class="menu-btn no-print" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav">
+    {% for item in site.data.navigation.main %}
+    <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a>
+    {% endfor %}
+  </nav>
+</header>
+
+<main class="main-wrap">
+{{ content }}
+</main>
+
+<footer class="bc-footer">
+  <div class="bc-footer-inner">
+    <div class="bc-footer-copy">© {{ site.time | date: "%Y" }} Bowen Cui</div>
+    <div class="bc-footer-updated">Site last updated {{ site.time | date: "%b %Y" }}</div>
+  </div>
+</footer>
+
+</div>
+
+<script src="{{ '/assets/js/bc.js' | relative_url }}"></script>
+</body>
+</html>

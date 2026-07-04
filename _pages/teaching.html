@@ -1,12 +1,27 @@
 ---
-layout: archive
-title: "Teaching"
+layout: bc
 permalink: /teaching/
-author_profile: true
+short_title: "Teaching"
 ---
 
-{% include base_path %}
+<div class="page-head">
+  <div class="eyebrow">Service</div>
+  <h1>Teaching</h1>
+</div>
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+{% assign teaching = site.teaching | sort: 'date' | reverse %}
+{% if teaching.size == 0 %}
+<p class="ph-note">Courses I assist or teach will appear here.</p>
+{% endif %}
+
+<div class="row-list">
+  {% for t in teaching %}
+  <div class="date-row">
+    <div class="d">{{ t.date | date: "%b %Y" }}</div>
+    <div>
+      <div class="t">{{ t.title }}</div>
+      <div class="v">{{ t.type }}{% if t.venue %}, {{ t.venue }}{% endif %}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

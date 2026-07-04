@@ -1,85 +1,104 @@
 ---
+layout: bc
 permalink: /
-title: "Biography"
-author_profile: true
-redirect_from: 
+short_title: "About"
+redirect_from:
   - /about/
   - /about.html
 ---
 
-{% include base_path %}
+<div class="home-grid">
 
-<p class="hero-tagline">I work on making code run <span class="gradient-text">faster</span> — studying how large language models understand and optimize performance, from GPU kernels to HPC applications.</p>
+  <aside class="home-aside">
+    <img class="portrait" src="{{ '/images/portrait.jpg' | relative_url }}" alt="Portrait of Bowen Cui">
+    <div>
+      <div class="contact-label">Contact</div>
+      <div class="contact-list">
+        <div class="plain">Fairfax, VA, USA</div>
+        <div class="plain">George Mason University</div>
+        <a href="mailto:bcui2@gmu.edu">Email</a>
+        <a href="https://scholar.google.com/citations?user=Bxt28QQAAAAJ&hl=en">Google Scholar</a>
+        <a href="https://github.com/bowencui123">GitHub</a>
+      </div>
+    </div>
+  </aside>
 
-<div class="chip-row">
-  <span class="chip"><i class="fas fa-server" aria-hidden="true"></i> High-Performance Computing</span>
-  <span class="chip"><i class="fas fa-bolt" aria-hidden="true"></i> Code Optimization</span>
-  <span class="chip"><i class="fas fa-robot" aria-hidden="true"></i> Large Language Models</span>
+  <div class="home-main">
+    <div class="eyebrow">Ph.D. Student · Computer Science</div>
+    <h1>Bowen Cui</h1>
+    <p class="home-lead">I work on making high-performance software faster to run and easier to understand.</p>
+    <p class="home-bio">I am a first-year (Fall 2024) Ph.D. student in the <a class="text-link" href="https://cs.gmu.edu/">Department of Computer Science</a> at <a class="text-link" href="https://www.gmu.edu/">George Mason University</a> (GMU), advised by Professor <a class="text-link" href="https://www.jokeren.tech/">Keren Zhou</a>. Before GMU, I received my M.S. in Statistics from Washington University in St.&nbsp;Louis (WUSTL) and my B.S. in Applied Mathematics from Xi'an Jiaotong-Liverpool University (XJTLU).</p>
+
+    <div class="section-row tight">
+      <span class="eyebrow">Research Interests</span>
+      <span class="rule"></span>
+    </div>
+    <div class="interest-grid">
+      <div class="interest-card">
+        <div class="t">High-Performance Computing</div>
+        <div class="d">Performance analysis and profiling of large-scale applications on modern GPU and CPU architectures.</div>
+      </div>
+      <div class="interest-card">
+        <div class="t">Code Optimization</div>
+        <div class="d">Compiler- and profiling-guided techniques for finding and eliminating performance bottlenecks.</div>
+      </div>
+      <div class="interest-card">
+        <div class="t">Large Language Models</div>
+        <div class="d">Applying LLMs to systems problems — kernel generation, code translation, and performance tuning.</div>
+      </div>
+    </div>
+
+    <div class="home-section">
+      <div class="section-row">
+        <span class="eyebrow">GitHub Activity</span>
+        <span class="rule"></span>
+        <span class="section-note" id="gh-total"></span>
+      </div>
+      <div id="gh-activity" data-user="{{ site.author.github | default: 'bowencui123' }}"></div>
+    </div>
+
+    <div class="home-lower">
+
+      <div>
+        <div class="section-row">
+          <span class="eyebrow">News</span>
+          <span class="rule"></span>
+        </div>
+        <div class="news-list">
+          {% for item in site.data.news %}
+          <div class="news-item">
+            <div class="news-date">{{ item.date }}</div>
+            <div class="news-text">{{ item.text }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div>
+        <div class="section-row">
+          <span class="eyebrow">Selected Publications</span>
+          <span class="rule"></span>
+        </div>
+        <div class="selpub-list">
+          {% assign pubs = site.publications | sort: 'date' | reverse %}
+          {% for p in pubs limit: 3 %}
+          <div class="selpub">
+            {% if p.paperurl %}
+            <a class="t selpub-t" href="{{ p.paperurl }}">{{ p.title }}</a>
+            {% else %}
+            <span class="t">{{ p.title }}</span>
+            {% endif %}
+            <div class="a">{{ p.authors }}</div>
+            <div class="m">
+              <span class="chip">{{ p.venue_short | default: p.venue }}</span>
+              <span class="y">{{ p.date | date: "%Y" }}</span>
+            </div>
+          </div>
+          {% endfor %}
+          <a class="view-all" href="{{ '/publications/' | relative_url }}">View all publications →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
-
-<p>Bowen Cui is a Ph.D. student (since Fall 2024) in the <a href="https://cs.gmu.edu/">Department of Computer Science</a> at <a href="https://www.gmu.edu/">George Mason University</a> (GMU), advised by Professor <a href="https://www.jokeren.tech/">Keren Zhou</a>. He obtained his master's degree in Statistics from Washington University in St. Louis (WUSTL) and his bachelor's degree in Applied Mathematics from Xi'an Jiaotong-Liverpool University (XJTLU). His research interests focus on High-Performance Computing, Code Optimization, and Large Language Models.</p>
-
-<div class="cta-row">
-  <a class="cta-btn cta-btn--primary" href="mailto:bcui2@gmu.edu"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
-  <a class="cta-btn" href="https://scholar.google.com/citations?user=Bxt28QQAAAAJ&hl=en"><i class="ai ai-google-scholar" aria-hidden="true"></i> Google Scholar</a>
-  <a class="cta-btn" href="https://github.com/bowencui123"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-  <a class="cta-btn" href="{{ base_path }}/cv/"><i class="fas fa-file-alt" aria-hidden="true"></i> CV</a>
-</div>
-
-<h2 class="section-title">News</h2>
-
-<div class="news-list">
-  {% for item in site.data.news %}
-  <div class="news-item">
-    <span class="news-date">{{ item.date }}</span>
-    <span class="news-text">{{ item.text }}</span>
-  </div>
-  {% endfor %}
-</div>
-
-<h2 class="section-title">Research Interests</h2>
-
-<div class="research-grid">
-  <div class="research-card">
-    <i class="fas fa-robot" aria-hidden="true"></i>
-    <h3>LLMs for Code Performance</h3>
-    <p>Evaluating and improving how large language models understand and apply performance optimization.</p>
-  </div>
-  <div class="research-card">
-    <i class="fas fa-server" aria-hidden="true"></i>
-    <h3>High-Performance Computing</h3>
-    <p>Performance analysis and optimization of parallel applications on modern GPU systems.</p>
-  </div>
-  <div class="research-card">
-    <i class="fas fa-bolt" aria-hidden="true"></i>
-    <h3>Code Optimization</h3>
-    <p>Kernel- and compiler-level techniques that squeeze more performance out of modern hardware.</p>
-  </div>
-</div>
-
-<h2 class="section-title">Education</h2>
-
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-years">2024 — Present</div>
-    <div class="timeline-degree">Ph.D. in Computer Science</div>
-    <div class="timeline-school">George Mason University · Advised by <a href="https://www.jokeren.tech/">Prof. Keren Zhou</a></div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-degree">M.S. in Statistics</div>
-    <div class="timeline-school">Washington University in St. Louis</div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-degree">B.S. in Applied Mathematics</div>
-    <div class="timeline-school">Xi'an Jiaotong-Liverpool University</div>
-  </div>
-</div>
-
-<h2 class="section-title">Selected Publications</h2>
-
-{% assign sorted_pubs = site.publications | sort: 'date' | reverse %}
-{% for post in sorted_pubs limit:2 %}
-  {% include archive-single.html %}
-{% endfor %}
-
-<p><a class="see-all" href="{{ base_path }}/publications/">See all publications <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>

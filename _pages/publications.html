@@ -1,36 +1,45 @@
 ---
-layout: archive
-title: "Publications"
+layout: bc
 permalink: /publications/
-author_profile: true
+short_title: "Publications"
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<div class="page-head">
+  <div class="eyebrow">Research</div>
+  <h1>Publications</h1>
+</div>
 
-{% include base_path %}
+{% assign pubs = site.publications | sort: 'date' | reverse %}
+{% assign groups = pubs | group_by_exp: 'p', 'p.date | date: "%Y"' %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
+<div class="pub-filters no-print">
+  <button class="pub-filter active" data-year="all">All</button>
+  {% for g in groups %}
+  <button class="pub-filter" data-year="{{ g.name }}">{{ g.name }}</button>
+  {% endfor %}
+</div>
+
+{% for g in groups %}
+<div class="pub-group" data-year="{{ g.name }}">
+  <div class="pub-year-label">{{ g.name }}</div>
+  <div class="pub-items">
+    {% for p in g.items %}
+    <div class="pub-entry">
+      {% if p.paperurl %}
+      <a class="t pub-entry-t" href="{{ p.paperurl }}">{{ p.title }}</a>
+      {% else %}
+      <span class="t">{{ p.title }}</span>
       {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
+      <div class="a">{{ p.authors }}</div>
+      <div class="m">
+        <span class="chip">{{ p.venue_short | default: p.venue }}</span>
+        {% if p.paperurl %}<a class="pub-link" href="{{ p.paperurl }}">PDF</a>{% endif %}
+        {% if p.codeurl %}<a class="pub-link" href="{{ p.codeurl }}">Code</a>{% endif %}
+        {% if p.slidesurl %}<a class="pub-link" href="{{ p.slidesurl }}">Slides</a>{% endif %}
+        {% if p.bibtex %}<button class="pub-link bib-btn no-print" data-bibtex="{{ p.bibtex | strip | escape }}">BibTeX</button>{% endif %}
+      </div>
+    </div>
     {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
-
-
-
+  </div>
+</div>
+{% endfor %}

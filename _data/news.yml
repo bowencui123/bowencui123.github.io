@@ -1,8 +1,10 @@
 # Homepage "News" items, newest first.
-# Each item: `date` (shown as-is) and `text` (HTML allowed).
+# Each item: `date` (shown as-is, e.g. "Sep 2025") and `text` (HTML allowed).
 - date: "Sep 2025"
-  text: 'Our paper <i>Comprehensive Evaluation of LLMs in HPC Code Performance Optimization</i> was presented at <b>ICPP Companion 2025</b> 🎉'
+  text: 'Our paper <em>Comprehensive Evaluation of LLMs in HPC Code Performance Optimization</em> was presented at ICPP Companion 2025.'
 - date: "Mar 2025"
-  text: 'New preprint <a href="https://arxiv.org/abs/2503.13772"><i>Do Large Language Models Understand Performance Optimization?</i></a> is now on arXiv.'
+  text: 'New preprint <a href="https://arxiv.org/abs/2503.13772"><em>Do Large Language Models Understand Performance Optimization?</em></a> is now on arXiv.'
 - date: "Aug 2024"
-  text: 'Started my Ph.D. in Computer Science at <b>George Mason University</b>, advised by <a href="https://www.jokeren.tech/">Prof. Keren Zhou</a>.'
+  text: 'Started my Ph.D. in Computer Science at George Mason University, advised by Prof. Keren Zhou.'
+- date: "May 2024"
+  text: 'Received my M.S. in Statistics from Washington University in St. Louis.'

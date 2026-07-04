@@ -1,14 +1,29 @@
 ---
-layout: archive
-title: "Portfolio"
+layout: bc
 permalink: /portfolio/
-author_profile: true
+short_title: "Portfolio"
 ---
 
-{% include base_path %}
+<div class="page-head">
+  <div class="eyebrow">Projects</div>
+  <h1>Portfolio</h1>
+</div>
 
+{% assign projects = site.portfolio %}
+{% if projects.size == 0 %}
+<p class="ph-note">Tools, systems, and course projects will appear here.</p>
+{% endif %}
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
-
+<div class="proj-grid">
+  {% for pr in projects %}
+  <div class="proj-card">
+    <div class="t">{{ pr.title }}</div>
+    <div class="d">{{ pr.excerpt | strip_html }}</div>
+    {% if pr.tags %}
+    <div class="proj-tags">
+      {% for tag in pr.tags %}<span class="proj-tag">{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
