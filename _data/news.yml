@@ -1,0 +1,8 @@
+# Homepage "News" items, newest first.
+# Each item: `date` (shown as-is) and `text` (HTML allowed).
+- date: "Sep 2025"
+  text: 'Our paper <i>Comprehensive Evaluation of LLMs in HPC Code Performance Optimization</i> was presented at <b>ICPP Companion 2025</b> 🎉'
+- date: "Mar 2025"
+  text: 'New preprint <a href="https://arxiv.org/abs/2503.13772"><i>Do Large Language Models Understand Performance Optimization?</i></a> is now on arXiv.'
+- date: "Aug 2024"
+  text: 'Started my Ph.D. in Computer Science at <b>George Mason University</b>, advised by <a href="https://www.jokeren.tech/">Prof. Keren Zhou</a>.'
