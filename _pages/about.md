@@ -26,7 +26,7 @@ redirect_from:
   <div class="home-main">
     <div class="eyebrow">Ph.D. Student · Computer Science</div>
     <h1>Bowen Cui</h1>
-    <p class="home-lead">I work on making high-performance software faster to run and easier to understand.</p>
+    <p class="home-lead">I work on AI infrastructure at the intersection of GPU systems, compilers, and LLMs.</p>
     <p class="home-bio">I am a third-year Ph.D. student (since Fall 2024) in the <a class="text-link" href="https://cs.gmu.edu/">Department of Computer Science</a> at <a class="text-link" href="https://www.gmu.edu/">George Mason University</a> (GMU), advised by Professor <a class="text-link" href="https://www.jokeren.tech/">Keren Zhou</a>. Before GMU, I received my M.S. in Statistics from Washington University in St.&nbsp;Louis (WUSTL) and my B.S. in Applied Mathematics from Xi'an Jiaotong-Liverpool University (XJTLU).</p>
 
     <div class="section-row tight">
