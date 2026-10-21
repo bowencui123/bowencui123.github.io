@@ -1,10 +1,11 @@
-# Homepage "News" items, newest first.
-# Each item: `date` (shown as-is, e.g. "Sep 2025") and `text` (HTML allowed).
+# Latest first; announcements reflect confirmed acceptance, not publication dates.
+- date: "Oct 2026"
+  text: 'Our work on physics-informed graph convolutional networks for snow water equivalent estimation was accepted by <em>Earth and Space Science</em>.'
+- date: "Sep 2026"
+  text: '<em>HPC-Bench</em> was accepted to the NeurIPS 2026 Evaluations &amp; Datasets Track (poster).'
+- date: "Sep 2026"
+  text: '<em>TileBench</em>, our benchmark of Triton and cuTile programming models, was accepted to AACL 2026.'
 - date: "Sep 2025"
-  text: 'Our paper <em>Comprehensive Evaluation of LLMs in HPC Code Performance Optimization</em> was presented at ICPP Companion 2025.'
-- date: "Mar 2025"
-  text: 'New preprint <a href="https://arxiv.org/abs/2503.13772"><em>Do Large Language Models Understand Performance Optimization?</em></a> is now on arXiv.'
+  text: 'Presented our study of LLM-driven HPC code optimization at ICPP Companion 2025.'
 - date: "Aug 2024"
-  text: 'Started my Ph.D. in Computer Science at George Mason University, advised by Prof. Keren Zhou.'
-- date: "May 2024"
-  text: 'Received my M.S. in Statistics from Washington University in St. Louis.'
+  text: 'Started my Computer Science Ph.D. at George Mason University, advised by Prof. Keren Zhou.'
