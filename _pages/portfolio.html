@@ -1,29 +1,22 @@
 ---
 layout: bc
 permalink: /portfolio/
-short_title: "Portfolio"
+short_title: "Research"
 ---
-
-<div class="page-head">
-  <div class="eyebrow">Projects</div>
-  <h1>Portfolio</h1>
-</div>
-
-{% assign projects = site.portfolio %}
-{% if projects.size == 0 %}
-<p class="ph-note">Tools, systems, and course projects will appear here.</p>
-{% endif %}
-
+<div class="page-head"><div class="eyebrow">Systems &amp; Research</div><h1>Research Projects</h1></div>
+<p class="ph-note">Selected public research and software infrastructure. Projects still under anonymous review are not detailed here.</p>
 <div class="proj-grid">
+  {% assign projects = site.portfolio | sort: 'order' %}
   {% for pr in projects %}
   <div class="proj-card">
     <div class="t">{{ pr.title }}</div>
-    <div class="d">{{ pr.excerpt | strip_html }}</div>
-    {% if pr.tags %}
-    <div class="proj-tags">
-      {% for tag in pr.tags %}<span class="proj-tag">{{ tag }}</span>{% endfor %}
+    {% if pr.label %}<div><span class="chip">{{ pr.label }}</span></div>{% endif %}
+    <div class="d">{{ pr.excerpt | markdownify }}</div>
+    {% if pr.tags %}<div class="proj-tags">{% for tag in pr.tags %}<span class="proj-tag">{{ tag }}</span>{% endfor %}</div>{% endif %}
+    <div class="proj-links">
+      {% if pr.codeurl %}<a class="pub-link" href="{{ pr.codeurl }}">Code ↗</a>{% endif %}
+      {% if pr.paperurl %}<a class="pub-link" href="{{ pr.paperurl }}">Paper ↗</a>{% endif %}
     </div>
-    {% endif %}
   </div>
   {% endfor %}
 </div>

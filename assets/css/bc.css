@@ -712,3 +712,15 @@ a.date-row-t:hover { color: var(--accent); }
   a { color: #111111 !important; }
   @page { margin: 1.6cm; }
 }
+
+
+/* Research refresh: compact project links and CV research hierarchy. */
+.proj-card .d p { margin: 0; }
+.proj-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.cv-research-heading { font-size: 16px; color: var(--accent); margin: 26px 0 2px; font-weight: 600; }
+.cv-detail-link { margin-top: 14px; font-size: 14px; }
+@media (max-width: 540px) {
+  .cv-row { grid-template-columns: minmax(0,1fr); gap: 5px; }
+  .cv-row .y { font-size: 12px; }
+  .proj-grid { grid-template-columns: 1fr; }
+}
