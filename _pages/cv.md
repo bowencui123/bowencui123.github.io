@@ -18,7 +18,7 @@ redirect_from:
   <p class="cv-detail-link"><a class="text-link" href="{{ '/portfolio/' | relative_url }}">See research project descriptions →</a></p>
   <div class="cv-section-row later"><span class="eyebrow">Selected Publications</span><span class="rule" style="flex:1;height:1px;background:var(--border);"></span></div>
   {% assign pubs = site.publications | sort: 'date' | reverse %}
-  {% for p in pubs %}<div class="cv-row"><div><div class="t">{{ p.title }}</div><div class="s">{{ p.authors }} · {{ p.venue }}</div></div><div class="y">{{ p.date | date: "%Y" }}</div></div>{% endfor %}
+  {% for p in pubs %}<div class="cv-row"><div><div class="t">{{ p.title }}</div><div class="s">{{ p.authors | replace: 'Bowen Cui', '<span class="me">Bowen Cui</span>' }} · {{ p.venue }}</div></div><div class="y">{{ p.date | date: "%Y" }}</div></div>{% endfor %}
   <div class="cv-section-row skills"><span class="eyebrow">Skills</span><span class="rule" style="flex:1;height:1px;background:var(--border);"></span></div>
   <div class="skill-chips">{% for s in site.data.cv.skills %}<span class="skill-chip">{{ s }}</span>{% endfor %}</div>
 </div>

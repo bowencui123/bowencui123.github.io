@@ -47,12 +47,12 @@ redirect_from:
       <div>
         <div class="section-row"><span class="eyebrow">Selected Publications</span><span class="rule"></span></div>
         <div class="selpub-list">
-          {% assign pubs = site.publications | where: 'featured', true | sort: 'date' | reverse %}
+          {% assign pubs = site.publications | where: 'featured', true | sort: 'selected_order' %}
           {% for p in pubs limit: 3 %}
           <div class="selpub">
             {% if p.paperurl %}<a class="t selpub-t" href="{{ p.paperurl }}">{{ p.title }}</a>{% else %}<span class="t">{{ p.title }}</span>{% endif %}
-            <div class="a">{{ p.authors }}</div>
-            <div class="m"><span class="chip">{{ p.venue_short | default: p.venue }}</span><span class="y">{{ p.date | date: "%Y" }}</span></div>
+            <div class="a">{{ p.authors | replace: 'Bowen Cui', '<span class="me">Bowen Cui</span>' }}</div>
+            {% assign v = p.venue_short | default: p.venue %}{% assign y = p.date | date: "%Y" %}<div class="m"><span class="chip">{{ v }}</span>{% unless v contains y %}<span class="y">{{ y }}</span>{% endunless %}{% if p.paperurl %}<a class="pub-link" href="{{ p.paperurl }}">PDF</a>{% endif %}{% if p.codeurl %}<a class="pub-link" href="{{ p.codeurl }}">Code</a>{% endif %}</div>
           </div>
           {% endfor %}
           <a class="view-all" href="{{ '/publications/' | relative_url }}">View all publications →</a>

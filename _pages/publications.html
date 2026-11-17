@@ -30,7 +30,7 @@ short_title: "Publications"
       {% else %}
       <span class="t">{{ p.title }}</span>
       {% endif %}
-      <div class="a">{{ p.authors }}</div>
+      <div class="a">{{ p.authors | replace: 'Bowen Cui', '<span class="me">Bowen Cui</span>' }}</div>
       <div class="m">
         <span class="chip">{{ p.venue_short | default: p.venue }}</span>
         {% if p.paperurl %}<a class="pub-link" href="{{ p.paperurl }}">PDF</a>{% endif %}
