@@ -274,6 +274,9 @@
     });
     h += '<span class="lbl">More</span></div></div>';
     root.innerHTML = h;
+    // Start scrolled to the most recent weeks; older months are a scroll away.
+    var sc = root.querySelector('.gh-scroll');
+    if (sc) sc.scrollLeft = sc.scrollWidth;
   }
 
   /* ---------------- Publications: year filter + BibTeX copy ---------------- */

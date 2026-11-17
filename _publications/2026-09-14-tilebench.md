@@ -10,5 +10,6 @@ authors: "Bowen Cui*, Zhongchun Zhou*, Hao Wu, Tejas Ramesh, Junyu Yin, Jialiang
 paperurl: "https://arxiv.org/abs/2609.29067"
 codeurl: "https://github.com/Deep-Learning-Profiling-Tools/Tilebench"
 featured: true
+selected_order: 2
 ---
 An evaluation of 45 GPU operators under matched semantics in Triton and cuTile, with autotuning, compiler inspection and profiling on NVIDIA B200.

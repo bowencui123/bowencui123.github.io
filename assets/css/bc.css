@@ -12,7 +12,7 @@
   --soft: #f6f1fa;
   --ink: #1a1a1f;
   --muted: #51515b;
-  --subtle: #8d8d96;
+  --subtle: #6b6b75;   /* was #8d8d96 (3.2:1) -> 5.1:1 on --bg, passes WCAG AA */
   --border: #e6e6ea;
   --border-strong: #d2d2d7;
   --accent: #68448b;
@@ -394,6 +394,9 @@ a.text-link:hover { color: var(--accent-strong); }
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
 }
+@media (min-width: 1000px) {
+  .interest-grid { grid-template-columns: repeat(3, 1fr); }   /* avoid the 2+1 orphan card */
+}
 .interest-card {
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -723,4 +726,33 @@ a.date-row-t:hover { color: var(--accent); }
   .cv-row { grid-template-columns: minmax(0,1fr); gap: 5px; }
   .cv-row .y { font-size: 12px; }
   .proj-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================================================
+   Design-critique fixes (Nov 2026)
+   ========================================================================== */
+
+/* Own name in author lists */
+.me { color: var(--ink); font-weight: 600; }
+
+/* Selected publications: link chips under each entry */
+.selpub .m { flex-wrap: wrap; }
+
+/* Mobile: keep the hamburger on-screen and get the name above the fold */
+@media (max-width: 820px) {
+  .home-aside {
+    max-width: none;
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .home-aside .portrait { aspect-ratio: 1 / 1; border-radius: 50%; }
+  .contact-list { gap: 4px; padding-top: 8px; }
+  .contact-list a { padding: 4px 0; }   /* larger touch target */
+}
+@media (max-width: 540px) {
+  .brand-divider, .brand-role { display: none; }
+  .hdr-right { gap: 12px; }
 }
